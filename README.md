@@ -2,7 +2,8 @@
 ## 목차
 - [Spring에서의 Configuration과 Bean](#1)
 - [java bean과 spring bean의 차이점](#2)
-- [Bean Factory와 어플리케이션 컨텍스트 차이](#usage)
+- [Bean Factory와 어플리케이션 컨텍스트 차이](#3)
+- [Spring에서의 의존성 주입 방식](#4)
 
 
 <a id="1"></a>
@@ -55,13 +56,39 @@ Bean 객체를 요청할 때 생성 (Lazy loading)
 ApplicationContext:
 
 BeanFactory의 확장 버전
-시작 시점에 모든 Bean 생성 (Eager loading)
-추가 기능:
-
-국제화(i18n)
-이벤트 발행/구독
-AOP 기능
-웹 애플리케이션 컨텍스트
-
+REST API, 마이크로 서비스 같은 웹 서비스에선 애플리케이션 컨텍스트가 권장됨
 
 실무에서는 대부분 ApplicationContext 사용
+
+<a id="4"></a>
+
+## Spring에서의 의존성 주입 방식
+스프링에서 의존성을 주입하는 주요 방식은 3가지가 있습니다:
+
+필드 주입 (Field Injection)
+
+`javaCopy@Autowired
+private Dependency1 dependency1;
+`
+생성자 주입 (Constructor Injection)
+
+`javaCopyprivate final Dependency1 dependency1;
+
+@Autowired
+public YourBusinessClass(Dependency1 dependency1) {
+    this.dependency1 = dependency1;
+}`
+
+setter 주입 (Setter Injection)
+
+`javaCopy@Autowired
+public void setDependency1(Dependency1 dependency1) {
+    this.dependency1 = dependency1;
+}`
+
+이 코드를 실행하면 "setterInjection1"과 "setterInjection2"가 출력되는 것을 볼 수 있는데, 이는 스프링이 setter 메서드를 통해 의존성을 주입하는 과정을 보여줍니다.
+참고로, 최근의 스프링 개발에서는 생성자 주입 방식을 가장 권장합니다. 그 이유는:
+
+필수적인 의존성을 명확히 표현할 수 있음
+불변성(immutability) 보장
+단위 테스트가 용이함
