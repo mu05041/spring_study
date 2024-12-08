@@ -67,24 +67,29 @@ REST API, 마이크로 서비스 같은 웹 서비스에선 애플리케이션 �
 
 필드 주입 (Field Injection)
 
-`javaCopy@Autowired
+```java
+javaCopy@Autowired
 private Dependency1 dependency1;
-`
+```
 생성자 주입 (Constructor Injection)
 
-`javaCopyprivate final Dependency1 dependency1;
+``` java
+javaCopyprivate final Dependency1 dependency1;
 
 @Autowired
 public YourBusinessClass(Dependency1 dependency1) {
     this.dependency1 = dependency1;
-}`
+}
+```
 
 setter 주입 (Setter Injection)
 
-`javaCopy@Autowired
+``` java
+javaCopy@Autowired
 public void setDependency1(Dependency1 dependency1) {
     this.dependency1 = dependency1;
-}`
+}
+```
 
 이 코드를 실행하면 "setterInjection1"과 "setterInjection2"가 출력되는 것을 볼 수 있는데, 이는 스프링이 setter 메서드를 통해 의존성을 주입하는 과정을 보여줍니다.
 참고로, 최근의 스프링 개발에서는 생성자 주입 방식을 가장 권장합니다. 그 이유는:

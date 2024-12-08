@@ -14,9 +14,10 @@ class YourBusinessClass{
     Dependecny1 dependecy1;
     Dependecny2 dependecy2;
 
-    @Autowired
+//    @Autowired
     public YourBusinessClass(Dependecny1 dependecy1, Dependecny2 dependecy2) {
         super();
+        System.out.println("Constructor Injected");
         this.dependecy1 = dependecy1;
         this.dependecy2 = dependecy2;
     }
