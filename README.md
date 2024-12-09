@@ -9,6 +9,8 @@
 - [스프링 싱글톤](#7)
 - [PostConstruct vs PreDestroy](#8)
 - [스프링의 어노테이션](#9)
+- [스프링의 전체구조](#10)
+
 
 
 
@@ -277,3 +279,21 @@ public class MyService {
 - @PreDestroy 컨테이너에서 인스턴스를 삭제하는 과정을 거치고 있음을 알려줌
 - @Name Jakart Context & Dependency Injection 에서 @Component와 비슷하게 씀
 
+<a id="10"></a>
+
+## 스프링의 전체구조
+- 스프링은 여러개의 모듈을 가지고 있음 
+    - Fundamental Features: (IOC container, Dependency, Injection, Auto Wiring)
+    - Web: Spring MVC 등
+    - Web Reactive: Spring WebFlux 등
+    - Data Access: JDBC, JPA 등
+    - Integration: JMS 등
+    - Testing: Mock Objects, Spring MVC Test 등
+
+- 왜 스프링은 여러개의 모듈로 나뉘었을까?
+    - 유연성을 위해. 각각의 애플리케이션마다 요구사항이 다르기 떄문. 웹앱을 다루려면 주로 MVC를 사용하고 나머지 모듈은 신경쓸필요가 없게 만들었다.
+    모듈을 고르고 선택해 쓸 수 있게함
+
+- 스프링 프로젝트는 발전 중
+    - Spring Security, Spring Data등
+    
