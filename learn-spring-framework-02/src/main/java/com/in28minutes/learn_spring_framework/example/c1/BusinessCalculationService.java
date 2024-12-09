@@ -1,10 +1,11 @@
 package com.in28minutes.learn_spring_framework.example.c1;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 //import com.in28minutes.learn_spring_framework.example.c1.DataService;
 import java.util.Arrays;
 
-@Component
+@Service
 public class BusinessCalculationService {
     private final DataService dataService;
 

@@ -9,13 +9,13 @@ import java.util.Arrays;
 
 @Configuration
 @ComponentScan
-public class DepinjectionLaunchApplication {
+public class RealWorldSpringContextLaunchApplication {
 
 
     public static void main(String[] args) {
 
         try (var context =
-                     new AnnotationConfigApplicationContext(DepinjectionLaunchApplication.class)) {
+                     new AnnotationConfigApplicationContext(RealWorldSpringContextLaunchApplication.class)) {
             Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 
             System.out.println(context.getBean(BusinessCalculationService.class).findMax());
